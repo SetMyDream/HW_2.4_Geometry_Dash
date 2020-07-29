@@ -1,35 +1,29 @@
 import java.util.Random;
 
 public class Square extends Figure {
-    private double s;
-    private double xC;
-    private double yC;
+    private double size;
     private Color color;
 
     public Square() {
-        s = 0;
-        xC = 0;
-        yC = 0;
-        color = Color.White;
+        this.size = 0;
+        this.color = Color.White;
     }
 
     public Square(double xCorner, double yCorner, double size, Color recolor) {
-        s = size;
-        xC = xCorner;
-        yC = yCorner;
-        color = recolor;
+        this.size = size;
+        this.color = recolor;
     }
 
-    public void setS(double a) {
+    public void setSize(double a) {
 
     }
 
     public double getArea() {
-        return (s * s);
+        return (size * size);
     }
 
     public void setColor(Color recolor) {
-        color = recolor;
+        this.color = recolor;
     }
 
     public Color getColor() {
@@ -38,19 +32,11 @@ public class Square extends Figure {
 
     public void refactorRandom() {
         Random random = new Random();
-        s = 15*random.nextDouble();
-        xC = 12*random.nextDouble();
-        yC = 10*random.nextDouble();
-        color = Color.values()[random.nextInt(Color.values().length)];
-    }
-
-    public void setCoords(double a, double b) {
-        xC = a;
-        yC = b;
+        this.size = 15 * random.nextDouble();
+        this.color = Color.values()[random.nextInt(Color.values().length)];
     }
 
     public void draw() {
-        System.out.println(color + " square is created. " +
-                "Corner is in X:" + xC + " Y:" + yC + ", area =" + getArea());
+        System.out.println(color + " square is created, area =" + getArea() + "Also it`s diagonal " + (Math.sqrt(2) * size));
     }
 }

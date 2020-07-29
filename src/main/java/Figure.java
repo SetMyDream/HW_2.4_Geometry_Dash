@@ -18,7 +18,6 @@ public abstract class Figure {
 
     public abstract void refactorRandom();
 
-    public abstract void setCoords(double a, double b);
 
     public abstract void draw();
 }

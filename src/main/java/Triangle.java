@@ -1,44 +1,54 @@
 import java.util.Random;
 
 public class Triangle extends Figure {
-    private double xC;
-    private double yC;
-    private double sA;
-    private double sB;
-    private double sC;
+    private double sizeA;
+    private double sizeB;
+    private double sizeC;
     private Color color;
 
     public Triangle() {
-        xC = 0;
-        yC = 0;
-        sA = 0;
-        sB = 0;
-        sC = 0;
-        color = Color.Black;
+        this.sizeA = 0;
+        this.sizeB = 0;
+        this.sizeC = 0;
+        this.color = Color.Black;
     }
 
-    public Triangle(double xCorner, double yCorner, double sizeA, double sizeB, double sizeC, Color recolor) {
-        xC = xCorner;
-        yC = yCorner;
-        sA = sizeA;
-        sB = sizeB;
-        sC = sizeC;
-        color = recolor;
+    public Triangle(double xCorner, double yCorner, double sizeA, double sizeB, double sizeC, Color color) {
+        this.sizeA = sizeA;
+        this.sizeB = sizeB;
+        this.sizeC = sizeC;
+        this.color = color;
     }
 
     public void setSize(double a, double b, double c) {
-        sA = a;
-        sB = b;
-        sC = c;
+        this.sizeA = a;
+        this.sizeB = b;
+        this.sizeC = c;
     }
 
     public double getArea() {
-        double p = (Math.abs(sA) + Math.abs(sB) + Math.abs(sC)) / 2;
-        return ((double) Math.sqrt(p * (sA - p) * (sB - p) * (sC - p)));
+        double p = (Math.abs(sizeA) + Math.abs(sizeB) + Math.abs(sizeC)) / 2;
+        return (Math.sqrt(p * (sizeA - p) * (sizeB - p) * (sizeC - p)));
     }
 
     public void setColor(Color recolor) {
-        color = recolor;
+        this.color = recolor;
+    }
+
+    public double[] getAngles() {
+        double angA = Math.acos((sizeA * sizeA + sizeB * sizeB - sizeC * sizeC) / 2 * sizeA * sizeB);
+        double angB = Math.acos((sizeA * sizeA + sizeC * sizeC - sizeB * sizeB) / 2 * sizeA * sizeC);
+        double angC = Math.acos((sizeC * sizeC + sizeB * sizeB - sizeA * sizeA) / 2 * sizeC * sizeB);
+        return new double[]{angA, angB, angC};
+    }
+
+    public String isRectangular() {
+        double[] angles = this.getAngles();
+        double maxAngle = angles[0];
+        for (double angle : angles) {
+            maxAngle = Math.max(maxAngle, angle);
+        }
+        return (maxAngle == (double) 90) ? " is rectangular!" : " is NOT rectangular!";
     }
 
     public Color getColor() {
@@ -47,21 +57,16 @@ public class Triangle extends Figure {
 
     public void refactorRandom() {
         Random random = new Random();
-        xC = 10 * random.nextDouble();
-        yC = 10 * random.nextDouble();
-        sA = 15 * random.nextDouble();
-        sB = 15 * random.nextDouble();
-        sC = 15 * random.nextDouble();
-        color = Color.values()[random.nextInt(Color.values().length)];
-    }
-
-    public void setCoords(double a, double b) {
-        xC = a;
-        yC = b;
+        this.sizeA = 15 * random.nextDouble();
+        this.sizeB = 15 * random.nextDouble();
+        this.sizeC = 15 * random.nextDouble();
+        if (Math.max(Math.max(sizeA, sizeB), sizeC) * 2 - (sizeA + sizeB + sizeC) <= 0) {
+            refactorRandom();
+        }
+        this.color = Color.values()[random.nextInt(Color.values().length)];
     }
 
     public void draw() {
-        System.out.println(color + " triangle is created. " +
-                "Corner is in X:" + xC + " Y:" + yC + ", area =" + getArea());
+        System.out.println(this.color + " triangle is created, area =" + this.getArea()+this.isRectangular());
     }
 }

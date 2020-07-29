@@ -1,7 +1,6 @@
-//import javafx.application.Application;
-//import javafx.stage.Stage;
-
-import java.util.*;
+import java.util.Random;
+import java.util.LinkedList;
+import java.util.List;
 
 public class main {
 
@@ -36,6 +35,4 @@ public class main {
             figure.draw();
         }
     }
-
-
 }

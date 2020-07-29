@@ -1,43 +1,37 @@
 import java.util.Random;
 
 public class Trapeze extends Figure {
-    private double xC;
-    private double yC;
-    private double uS;
-    private double dS;
-    private double h;
+    private double upperSide;
+    private double downSide;
+    private double height;
     private Color color;
 
     public Trapeze() {
-        xC = 0;
-        yC = 0;
-        uS = 0;
-        dS = 0;
-        h = 0;
-        color = Color.Red;
+        this.upperSide = 0;
+        this.downSide = 0;
+        this.height = 0;
+        this.color = Color.Red;
     }
 
     public Trapeze(double xCorner, double yCorner, double upSize, double downSize, double height, Color recolor) {
-        xC = xCorner;
-        yC = yCorner;
-        uS = upSize;
-        dS = downSize;
-        h = height;
-        color = recolor;
+        this.upperSide = upSize;
+        this.downSide = downSize;
+        this.height = height;
+        this.color = recolor;
     }
 
     public void setSize(double a, double b, double c) {
-        uS = a;
-        dS = b;
-        h = c;
+        this.upperSide = a;
+        this.downSide = b;
+        this.height = c;
     }
 
     public double getArea() {
-        return ((uS + dS / 2) * h);
+        return ((upperSide + downSide / 2) * height);
     }
 
     public void setColor(Color recolor) {
-        color = recolor;
+        this.color = recolor;
     }
 
     public Color getColor() {
@@ -46,21 +40,17 @@ public class Trapeze extends Figure {
 
     public void refactorRandom() {
         Random random = new Random();
-        xC = 12*random.nextDouble();
-        yC = 15*random.nextDouble();
-        uS = 14*random.nextDouble();
-        dS = 10*random.nextDouble();
-        h = random.nextDouble();
-        color = Color.values()[random.nextInt(Color.values().length*1)];
+        this.upperSide = 14*random.nextDouble();
+        this.downSide = 10*random.nextDouble();
+        this.height = random.nextDouble();
+        this.color = Color.values()[random.nextInt(Color.values().length)];
     }
 
-    public void setCoords(double a, double b) {
-        xC = a;
-        yC = b;
+    public String isStable() {
+        return upperSide > downSide ?" is tend to be upside down":" is stable";
     }
 
     public void draw() {
-        System.out.println(color + " trapeze is created. " +
-                "Corner is in X:" + xC + " Y:" + yC + ", area =" + getArea());
+        System.out.println(color + " trapeze is created, area =" + getArea() + this.isStable());
     }
 }
