@@ -10,7 +10,7 @@ public class main {
         int numberOfFigures = (int) Math.ceil(Math.random() * 10 + 5);
         List<Figure> figures = new LinkedList<>();
         for (int i = 0; i < numberOfFigures; i++)
-            switch (random.nextInt(3)) {
+            switch (random.nextInt(4)) {
                 case 0: {
                     figures.add(new Circle());
                     break;
@@ -32,7 +32,7 @@ public class main {
 
         }
         for (Figure figure : figures) {
-          //  figure.refactorRandom();
+            figure.refactorRandom();
             figure.draw();
         }
     }

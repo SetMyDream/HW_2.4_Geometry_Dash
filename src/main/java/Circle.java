@@ -38,10 +38,10 @@ public class Circle extends Figure {
 
     @Override
     public void refactorRandom() {
-        Random random = new Random(10);
-        diam = random.nextDouble();
-        xC = random.nextDouble();
-        yC = random.nextDouble();
+        Random random = new Random();
+        diam = 25*random.nextDouble();
+        xC = 15*random.nextDouble();
+        yC = 12*random.nextDouble();
         color = Color.values()[random.nextInt(Color.values().length)];
     }
 

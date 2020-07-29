@@ -45,13 +45,13 @@ public class Trapeze extends Figure {
     }
 
     public void refactorRandom() {
-        Random random = new Random(25);
-        xC = random.nextDouble();
-        yC = random.nextDouble();
-        uS = random.nextDouble();
-        dS = random.nextDouble();
+        Random random = new Random();
+        xC = 12*random.nextDouble();
+        yC = 15*random.nextDouble();
+        uS = 14*random.nextDouble();
+        dS = 10*random.nextDouble();
         h = random.nextDouble();
-        color = Color.values()[random.nextInt(Color.values().length)];
+        color = Color.values()[random.nextInt(Color.values().length*1)];
     }
 
     public void setCoords(double a, double b) {

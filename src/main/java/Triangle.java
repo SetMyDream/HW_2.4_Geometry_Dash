@@ -33,8 +33,8 @@ public class Triangle extends Figure {
     }
 
     public double getArea() {
-        double p = (sA + sB + sC) / 2;
-        return ((double) Math.sqrt(p * (p - sA) * (p - sB) * (p - sC)));
+        double p = (Math.abs(sA) + Math.abs(sB) + Math.abs(sC)) / 2;
+        return ((double) Math.sqrt(p * (sA - p) * (sB - p) * (sC - p)));
     }
 
     public void setColor(Color recolor) {
@@ -46,12 +46,12 @@ public class Triangle extends Figure {
     }
 
     public void refactorRandom() {
-        Random random = new Random(15);
-        xC = 10*random.nextDouble();
-        yC = 10*random.nextDouble();
-        sA = 15*random.nextDouble();
-        sB = 15*random.nextDouble();
-        sC = 15*random.nextDouble();
+        Random random = new Random();
+        xC = 10 * random.nextDouble();
+        yC = 10 * random.nextDouble();
+        sA = 15 * random.nextDouble();
+        sB = 15 * random.nextDouble();
+        sC = 15 * random.nextDouble();
         color = Color.values()[random.nextInt(Color.values().length)];
     }
 

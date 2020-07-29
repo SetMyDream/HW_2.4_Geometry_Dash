@@ -37,10 +37,10 @@ public class Square extends Figure {
     }
 
     public void refactorRandom() {
-        Random random = new Random(5);
-        s = random.nextDouble();
-        xC = random.nextDouble();
-        yC = random.nextDouble();
+        Random random = new Random();
+        s = 15*random.nextDouble();
+        xC = 12*random.nextDouble();
+        yC = 10*random.nextDouble();
         color = Color.values()[random.nextInt(Color.values().length)];
     }
 
