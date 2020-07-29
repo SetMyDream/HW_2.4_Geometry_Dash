@@ -10,7 +10,7 @@ public class Triangle extends Figure {
         this.sizeA = 0;
         this.sizeB = 0;
         this.sizeC = 0;
-        this.color = Color.Black;
+        this.color = Color.BLACK;
     }
 
     public Triangle(double xCorner, double yCorner, double sizeA, double sizeB, double sizeC, Color color) {

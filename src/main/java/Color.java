@@ -1,3 +1,3 @@
 public enum Color {
-    White, Black, Red, Green, Blue, Cyan, Yellow, Magenta, Nether
+    WHITE, BLACK, RED, GREEN, BLUE, CYAN, YELLOW, MAGENTA, NETHER
 }

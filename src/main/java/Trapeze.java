@@ -10,7 +10,7 @@ public class Trapeze extends Figure {
         this.upperSide = 0;
         this.downSide = 0;
         this.height = 0;
-        this.color = Color.Red;
+        this.color = Color.RED;
     }
 
     public Trapeze(double xCorner, double yCorner, double upSize, double downSize, double height, Color recolor) {

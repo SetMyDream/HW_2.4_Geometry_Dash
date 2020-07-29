@@ -6,7 +6,7 @@ public class Square extends Figure {
 
     public Square() {
         this.size = 0;
-        this.color = Color.White;
+        this.color = Color.WHITE;
     }
 
     public Square(double xCorner, double yCorner, double size, Color recolor) {

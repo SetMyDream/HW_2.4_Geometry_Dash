@@ -11,7 +11,7 @@ public class Circle extends Figure {
 
     public Circle() {
         this.radius = 0;
-        this.color = Color.White;
+        this.color = Color.WHITE;
     }
 
     public Circle(double xCenter, double yCenter, double radius, Color color) {
